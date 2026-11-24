@@ -10,13 +10,19 @@ app.get('/math/circle/:r', (req, res) => {
     area: (Math.PI * r * r).toFixed(2),
     circumference: (2 * Math.PI * r).toFixed(2)
   };
+res.json(result);
+});
+
+app.get('/math/rectangle/:width/:height', (req, res) => {
+  const w = parseFloat(req.params.width);
+  const h = parseFloat(req.params.height);
+  const result = {
+    area: (w * h).toFixed(2),
+    perimeter: (w + w + h + h).toFixed(2)
+  };
   res.json(result);
 });
 
-//TODO2
-
-
-//TODO3
 
 
 const PORT = process.env.PORT || 3000;
